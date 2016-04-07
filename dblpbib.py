@@ -60,10 +60,10 @@ except FileNotFoundError:
 for fn in args.infiles:
     with open(fn, 'r') as f, open(args.output, 'a') as out:
         for key in extract_dblp_cite(f):
-            have_to_download = not key in keys_present and not key in keys_new
+            have_to_download = not key in keys_present
             if args.verbose:
                 print('{}: {}'.format(key, 'downloading' if have_to_download else 'available'))
             if have_to_download and not args.dry:
                 entry = download_dblp(key)
                 out.write(entry)
-                keys_new.add(key)
+                keys_present.add(key)
