@@ -41,6 +41,7 @@ parser = argparse.ArgumentParser(
 parser.add_argument('infiles', metavar="file", type=str, nargs='+', help='input tex files to scan for citations')
 parser.add_argument("-o", "--output",  required=True, help="output bibliography to add missing entries to", type=str)
 parser.add_argument("-v", "--verbose", help="increase output verbosity", action="store_true")
+parser.add_argument("-d", "--dry",     help="dry run; do not download, do not modify", action="store_true")
 args = parser.parse_args()
 
 keys_present = set()
@@ -61,7 +62,7 @@ for fn in args.infiles:
             have_to_download = not key in keys_present and not key in keys_new
             if args.verbose:
                 print('{}: {}'.format(key, 'downloading' if have_to_download else 'available'))
-            if have_to_download:
+            if have_to_download and not args.dry:
                 entry = download_dblp(key)
                 out.write(entry)
                 keys_new.add(key)
