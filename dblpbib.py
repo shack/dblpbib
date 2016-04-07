@@ -54,6 +54,7 @@ try:
             print('{} in bibfile'.format(key))
         keys_present.add(key)
 except FileNotFoundError:
+    # we will create the bibfile, if it is not there
     pass
 
 for fn in args.infiles:
