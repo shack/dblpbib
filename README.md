@@ -9,7 +9,10 @@ Howto
 
 Suppose you use `paper.bib` for your bibliography and have the contents of your paper in files `intro.tex` and `main.tex`.
 Now you want to cite some papers that are not in your bibliography yet.
-Suppose you want to cite Donald Knuth's famous LR-parsing paper.
+Suppose you want to cite Donald Knuth's famous LR parsing paper:
+
+Donald E. Knuth: *On the Translation of Languages from Left to Right.* Information and Control 8(6): 607-639 (1965)
+
 You proceed as follows:
 
 1. In his [DBLP entry](http://dblp.uni-trier.de/pers/hd/k/Knuth:Donald_E=), find the paper's dblp key: `journals/iandc/Knuth65` by hovering over the 'arrow down' download symbol.
