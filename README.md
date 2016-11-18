@@ -16,6 +16,7 @@ Donald E. Knuth: *On the Translation of Languages from Left to Right.* Informati
 You proceed as follows:
 
 1. In his [DBLP entry](http://dblp.uni-trier.de/pers/hd/k/Knuth:Donald_E=), find the paper's dblp key: `journals/iandc/Knuth65` by hovering over the 'arrow down' download symbol.
+
 ![DBLP Entry](doc/dblp.png)
 2. Now, just add `\cite{DBLP:journals/iandc/Knuth65}` to your text, for example in `main.tex`.
 3. To update your bibliography, just run
