@@ -5,8 +5,9 @@ import re
 import argparse
 import urllib.request
 
-dblp_key_pat = '(\w+/)*\w+'
-bibtex_key_pat = """([A-Za-z0-9.:;?!`'()/*@_+=,]|-)+"""
+adm_letter_pat = '(\w|/|-)'
+dblp_key_pat = """({0}+/)*{0}+""".format(adm_letter_pat)
+bibtex_key_pat = """([A-Za-z0-9.:;?!`/*@_+,]|-)+"""
 
 def extract_bibtex_dblp_key(f):
     pat = re.compile('@\w+{DBLP:(' + dblp_key_pat + ')')
@@ -26,6 +27,7 @@ def extract_dblp_cite(f):
 
 def download_dblp(key):
     url = 'http://dblp.uni-trier.de/rec/bib2/{}.bib'.format(key)
+    print(url)
     response = urllib.request.urlopen(url)
     data = response.read()
     text = data.decode('utf-8')
